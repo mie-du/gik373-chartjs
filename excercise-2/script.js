@@ -46,7 +46,7 @@ const querySCB = {
   }
 };
 
-const request = new Request(url, {
+const request = new Request(urlSCB, {
   method: 'POST',
   body: JSON.stringify(querySCB)
 });
