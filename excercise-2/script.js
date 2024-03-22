@@ -42,7 +42,7 @@ const querySCB = {
     }
   ],
   response: {
-    format: 'px'
+    format: 'JSON'
   }
 };
 
@@ -60,7 +60,7 @@ const urlUN =
 
 const requestUN = new Request(urlUN, {
   method: 'POST',
-  body: 'dataPointType=1&countryId=0&natureOfData=all',
+  body: 'dataPointType=1&0=0&natureOfData=all',
   headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 });
 
