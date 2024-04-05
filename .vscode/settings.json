@@ -1,3 +1,15 @@
 {
-  "liveServer.settings.port": 5501
+  "html.format.preserveNewLines": false,
+  "emmet.triggerExpansionOnTab": true,
+  "html.format.wrapLineLength": 120,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.semi": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "prettier.trailingComma": "none",
+  "prettier.singleQuote": true,
+  "prettier.bracketSameLine": true
 }

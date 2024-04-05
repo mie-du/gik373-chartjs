@@ -37,28 +37,6 @@ const config = { type: 'bar', data, options: {} };
 const canvas = document.getElementById('myChart');
 const myChart = new Chart(canvas, config);
 
-/* const myChart = new Chart(document.getElementById('myChart'), {
-  type: 'bar',
-  data: {
-    labels: [
-      'Avesta',
-      'Borlänge',
-      'Falun',
-      'Hedemora',
-      'Ludvika',
-      'Säter',
-      'Mora'
-    ],
-    datasets: [
-      {
-        label: 'Befolkning 2023',
-        data: [22753, 51735, 59986, 15345, 26402, 11243, 20536]
-      }
-    ]
-  },
-  options: { locale: 'sv' }
-}); */
-
 const overYear = new Chart(document.getElementById('overYear'), {
   type: 'line',
   data: {
@@ -76,6 +54,12 @@ const overYear = new Chart(document.getElementById('overYear'), {
         font: {
           size: 24
         }
+      }
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 60000
       }
     }
   }

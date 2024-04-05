@@ -99,8 +99,9 @@ async function getGoalByArea(goalId) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     }
   ).then((response) => response.json());
+  
   const regions = dataResult.regions;
-  console.log(regions);
+  console.log(regions); 
   const labelResult = await fetch(
     'https://unstats.un.org/SDGAPI/v1/sdg/Goal/List?includechildren=false'
   ).then((response) => response.json());
