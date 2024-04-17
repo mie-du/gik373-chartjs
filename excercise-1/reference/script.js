@@ -55,12 +55,29 @@ const overYear = new Chart(document.getElementById('overYear'), {
           size: 24
         }
       }
-    },
-    scales: {
-      y: {
-        min: 0,
-        max: 60000
-      }
     }
   }
 });
+
+/* Variant där allt sätts samman direkt i Chart-objektets konstruktor */
+/* 
+const myChart = new Chart(document.getElementById('myChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Avesta',
+      'Borlänge',
+      'Falun',
+      'Hedemora',
+      'Ludvika',
+      'Säter',
+      'Mora'
+    ],
+    datasets: [
+      {
+        label: 'Befolkning 2023',
+        data: [22753, 51735, 59986, 15345, 26402, 11243, 20536]
+      }
+    ]
+  }
+}); */
