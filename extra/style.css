@@ -15,13 +15,13 @@ h1 {
   padding: 4rem;
   font-size: 3rem;
   background: linear-gradient(270deg, hsl(165, 100%, 40%), hsl(310, 100%, 39%));
-  background-size: 400% 400%;
+  background-size: 200% 200%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-animation: Gradient 30s ease infinite;
   -moz-animation: Gradient 30s ease infinite;
   animation: Gradient 30s ease infinite;
-  border-bottom: 3px solid hsl(165, 100%, 40%);
+  border-bottom: 3px solid rgb(0, 204, 153);
 }
 @media screen and (min-width: 55rem) {
   h1 {
@@ -35,7 +35,7 @@ main {
   margin: 0 auto;
   height: 100vh;
 }
-main div {
+main > div {
   margin: 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -48,12 +48,14 @@ main div.flex {
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
+  gap: 2rem;
 }
-main div.flex div {
+main div.flex > div {
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  justify-content: center;
+  padding: 3rem;
   min-width: 600px;
   background: white;
   border-radius: 2rem;
@@ -63,13 +65,17 @@ main div.flex div {
 main div.flex div.full {
   flex-basis: 100%;
 }
-main img {
+
+main img#progressImg {
   width: 50px;
   height: 50px;
-  margin: 0 auto;
-  display: inline-block;
+  filter: brightness(0) saturate(100%) invert(71%) sepia(17%) saturate(5546%)
+    hue-rotate(115deg) brightness(88%) contrast(101%);
 }
-
+/* Annars kommer canvas ta plats innan innehåll finns (funkar inte med laddningssymbolen) */
+canvas {
+  display: none;
+}
 @keyframes Gradient {
   0% {
     background-position: 0% 50%;

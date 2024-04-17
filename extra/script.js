@@ -8,7 +8,11 @@ const fonts = {
     weight: 'normal'
   }
 };
-
+function getColors(data, opacity) {
+  return data.map(
+    (point, idx) => `hsla(${80 + idx * 35}, 100%, 40%, ${opacity})`
+  );
+}
 async function getLowIncomeData() {
   const query = {
     query: [
@@ -76,7 +80,6 @@ async function getLowIncomeData() {
     }
   ];
 
-  /* console.log(datasets); */
   const canvas = document.getElementById('scb');
   new Chart(canvas, {
     type: 'line',
@@ -120,32 +123,19 @@ async function getGoalByArea(goalId) {
     /* Ta bort världen ur datasetet */
     .filter((region) => region !== 'World');
 
-  console.log(labels);
   const data = regions.map((region) => region.goals[0].percentage);
-  console.log(data);
+
   const datasets = [
     {
       label: 'Uppfyllnad av mål ' + goalId + ' (%)',
       data,
-      backgroundColor: [
-        'hsla(0, 100%, 70%, .6)',
-        'hsla(20, 100%, 70%, .6)',
-        'hsla(40, 100%, 70%, .6)',
-        'hsla(60, 100%, 70%, .6)',
-        'hsla(80, 100%, 70%, .6)',
-        'hsla(100, 100%, 70%, .6)',
-        'hsla(120, 100%, 70%, .6)',
-        'hsla(140, 100%, 70%, .6)',
-        'hsla(160, 100%, 70%, .6)',
-        'hsla(170, 100%, 70%, .6)',
-        'hsla(190, 100%, 70%, .6)'
-      ],
+      backgroundColor: getColors(data, '0.5'),
       borderRadius: 10
     }
   ];
   const canvas = document.getElementById('un');
   //tar bort progress-cirkeln när allt är färdigt
-  document.getElementById('progress').remove();
+  document.getElementById('progressImg').style.display = 'none';
   new Chart(canvas, {
     type: 'bar',
     data: {
@@ -203,7 +193,6 @@ async function registredVehicles() {
   );
   const response = await fetch(request);
   const dataResult = await response.json();
-  console.log(dataResult);
   //manuellt mappade läsbara versioner av de koder som representerar respektive drivmedel.
   const codeMapLabels = {
     100: 'Bensin',
@@ -215,13 +204,17 @@ async function registredVehicles() {
     160: 'Gas/gas flexifuel',
     190: 'Övriga bränslen'
   };
-  const values = dataResult.data.map((data) => data.values[0]);
+
+  const data = dataResult.data.map((data) => data.values[0]);
+
   //mappar koderna som finns i resultatet med de läsbara varianterna som mappades manuellt
   const labels = dataResult.data.map((data) => codeMapLabels[data.key[1]]);
+  console.log(data);
   const datasets = [
     {
       label: 'Drivmedel hos nyregistrerade personbilar Mars 2024',
-      data: values
+      data,
+      backgroundColor: getColors(data, '0.6')
     }
   ];
   const canvas = document.getElementById('scbV');
@@ -238,10 +231,12 @@ async function registredVehicles() {
           display: true,
           font: fonts.title
         }
-      }
+      },
+      locale: 'sv'
     }
   });
 }
+
 getLowIncomeData();
 registredVehicles();
-getGoalByArea(1);
+getGoalByArea(2);
