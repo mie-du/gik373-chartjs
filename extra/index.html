@@ -13,18 +13,37 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header><h1>GIK373 - Diagram med Chart.js</h1></header>
+    <header>
+      <h1>GIK373 - Diagram med Chart.js</h1>
+      <div>
+        <p class="details">
+          Detta är en mashup för att visa olika data rörande hållbar
+          utveckliong. Mer om mashups finner ni här:
+          <a href="https://www.klipfolio.com/blog/data-mashup-examples"
+            >Om Mashups</a
+          >
+          Källor som har använts för att hämta data är
+          <a href="https://unstats.un.org/SDGAPI/swagger/#/"
+            >United Nations Statistics Division SDG API.
+          </a>
+          och
+          <a href="https://www.scb.se/hitta-statistik">SCB - Hitta statistik</a>
+        </p>
+      </div>
+    </header>
+
     <main>
       <div class="flex">
-        <div>
+        <div class="half">
           <canvas id="scb"></canvas>
         </div>
-        <div>
+        <div class="half">
           <canvas id="scbV"></canvas>
         </div>
         <div class="full">
           <img id="progressImg" src="icons8-spinner.gif" alt="" />
           <canvas id="un"></canvas>
+          <p class="details" id="unMoreInfo"></p>
         </div>
       </div>
     </main>
