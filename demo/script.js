@@ -121,6 +121,7 @@ async function getIncomeData() {
   ];
   /* Hämtar canvas-element i DOM-trädet */
   const canvas = document.getElementById('scb');
+  document.getElementById('progressImgScb').style.display = 'none';
   new Chart(canvas, {
     /* Typ av diagram */
     type: 'line',
@@ -183,7 +184,7 @@ async function getGoalByArea(goalId) {
   ];
   const canvas = document.getElementById('un');
   //tar bort progress-cirkeln när allt är färdigt
-  document.getElementById('progressImg').style.display = 'none';
+  document.getElementById('progressImgUN').style.display = 'none';
   new Chart(canvas, {
     type: 'bar',
     data: {
@@ -266,6 +267,7 @@ async function registredVehicles() {
     }
   ];
   const canvas = document.getElementById('scbV');
+  document.getElementById('progressImgScbV').style.display = 'none';
   new Chart(canvas, {
     type: 'pie',
     data: {
