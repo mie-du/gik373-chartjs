@@ -7,7 +7,6 @@ const labels = [
   'Säter',
   'Mora'
 ];
-
 const datasets = [
   {
     label: 'Befolkning 2022',
@@ -32,55 +31,37 @@ const data = {
   datasets
 };
 
-const config = { type: 'bar', data, options: {} };
+console.log(data);
+
+const config = { type: 'bar', data };
 
 const canvas = document.getElementById('myChart');
 const myChart = new Chart(canvas, config);
 
-const overYear = new Chart(document.getElementById('overYear'), {
+const myChart2 = new Chart(document.getElementById('myChart2'), {
   type: 'line',
   data: {
     labels: [2022, 2023],
     datasets: [
       {
         label: 'Borlänge',
-        data: [52178, 51735]
+        data: [52178, 51735],
+        borderColor: 'black'
       },
-      { label: 'Falun', data: [59818, 59986] }
+      {
+        label: 'Falun',
+        data: [59818, 59986],
+        borderColor: 'green'
+      }
     ]
   },
   options: {
     plugins: {
       title: {
         display: true,
-        text: 'Fler inställningar',
-        font: {
-          size: 24
-        }
+        text: 'Custom Chart Title',
+        font: { size: 36, family: 'Times New Roman' }
       }
     }
   }
 });
-
-/* Variant där allt sätts samman direkt i Chart-objektets konstruktor */
-/* 
-const myChart = new Chart(document.getElementById('myChart'), {
-  type: 'bar',
-  data: {
-    labels: [
-      'Avesta',
-      'Borlänge',
-      'Falun',
-      'Hedemora',
-      'Ludvika',
-      'Säter',
-      'Mora'
-    ],
-    datasets: [
-      {
-        label: 'Befolkning 2023',
-        data: [22753, 51735, 59986, 15345, 26402, 11243, 20536]
-      }
-    ]
-  }
-}); */
