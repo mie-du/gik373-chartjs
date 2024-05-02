@@ -80,7 +80,7 @@ const requestUN = new Request(urlUN, {
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   },
-  body: 'dataPointType=1&countryId=0&natureOfData=all'
+  body: 'dataPointType=1&countryId=752&natureOfData=C'
 });
 
 //skicka förfrågan
@@ -103,3 +103,11 @@ fetch(requestUN)
 
     //lägg in i diagram
   });
+
+//exempel umeå för grupp 6
+const urlUm =
+  'https://opendata.umea.se/api/explore/v2.1/catalog/datasets/vaxthusgasutslapp_umea/records?limit=20';
+
+fetch(urlUm)
+  .then((response) => response.json())
+  .then((data) => console.log(data));
