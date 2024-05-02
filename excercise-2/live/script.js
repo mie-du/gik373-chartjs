@@ -1,6 +1,8 @@
+//hitta url
 const urlSCB =
   'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy';
 
+//formatera förfrågan såsom mottagar-API:et vill ha det
 const querySCB = {
   query: [
     {
@@ -46,18 +48,26 @@ const querySCB = {
   }
 };
 
+//skapa förfrågan till given url, med given data som API:et vill ha
 const request = new Request(urlSCB, {
   method: 'POST',
   body: JSON.stringify(querySCB)
 });
 
+//skicka själva förfrågan via HTTP med fetch api
 fetch(request)
+  //gör om till json
   .then((response) => response.json())
   .then((scbData) => {
+    //titta på data
     console.log(scbData);
+    //behandla data
 
+    //formatera data som chart.js vill ha det
     const values = scbData.data.map((value) => value.values[0]);
     console.log(values);
+
+    //lägg in i diagram
   });
 
 //hitta rätt url
