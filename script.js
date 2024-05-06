@@ -356,7 +356,7 @@ async function getRegistredVeichleDataMulti() {
     options: {
       plugins: {
         title: {
-          text: 'Typer av nyregistrerade personbilar, mars 2024',
+          text: 'Typer av nyregistrerade personbilar, april 2024',
           display: true,
           font: fonts.title
         }
