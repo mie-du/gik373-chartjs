@@ -7,9 +7,9 @@ const fonts = {
   }
 };
 /* Stödfunktion för att generera färger.  */
-function getColors(data, opacity) {
+function getColors(data, opacity, start = 80) {
   return data.map(
-    (point, idx) => `hsla(${80 + idx * 35}, 100%, 40%, ${opacity})`
+    (point, idx) => `hsla(${start + idx * 35}, 100%, 40%, ${opacity})`
   );
 }
 
@@ -202,8 +202,22 @@ async function getGoalByArea(goalId) {
     }
   });
 }
-
-async function registredVehicles() {
+//manuellt mappade läsbara versioner av de koder som representerar respektive drivmedel.
+const codeFuelLabels = {
+  100: 'Bensin',
+  110: 'Diesel',
+  120: 'El',
+  130: 'Elhybrid',
+  140: 'Laddhybrid'
+};
+const codeRegionLabels = {
+  2080: 'Falun',
+  2081: 'Borlänge',
+  2084: 'Avesta',
+  2082: 'Säter',
+  2085: 'Ludvika'
+};
+async function getRegistredVehicleData() {
   const query = {
     query: [
       {
@@ -217,7 +231,7 @@ async function registredVehicles() {
         code: 'Drivmedel',
         selection: {
           filter: 'item',
-          values: ['100', '110', '120', '130', '140', '150', '160', '190']
+          values: Object.keys(codeFuelLabels)
         }
       },
       {
@@ -242,22 +256,11 @@ async function registredVehicles() {
   );
   const response = await fetch(request);
   const APIData = await response.json();
-  //manuellt mappade läsbara versioner av de koder som representerar respektive drivmedel.
-  const codeMapLabels = {
-    100: 'Bensin',
-    110: 'Diesel',
-    120: 'El',
-    130: 'Elhybrid',
-    140: 'Laddhybrid',
-    150: 'Etanol/etanol flexifuel',
-    160: 'Gas/gas flexifuel',
-    190: 'Övriga bränslen'
-  };
 
   const data = APIData.data.map((data) => data.values[0]);
 
   //mappar koderna som finns i resultatet med de läsbara varianterna som mappades manuellt
-  const labels = APIData.data.map((data) => codeMapLabels[data.key[1]]);
+  const labels = APIData.data.map((data) => codeFuelLabels[data.key[1]]);
 
   const datasets = [
     {
@@ -286,8 +289,86 @@ async function registredVehicles() {
     }
   });
 }
+async function getRegistredVeichleDataMulti() {
+  const query = {
+    query: [
+      {
+        code: 'Region',
+        selection: {
+          filter: 'item',
+          values: Object.keys(codeRegionLabels)
+        }
+      },
+      {
+        code: 'Drivmedel',
+        selection: {
+          filter: 'item',
+          values: Object.keys(codeFuelLabels)
+        }
+      },
+      {
+        code: 'Tid',
+        selection: {
+          filter: 'item',
+          values: ['2024M03']
+        }
+      }
+    ],
+    response: {
+      format: 'json'
+    }
+  };
+
+  const request = new Request(
+    'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/TK/TK1001/TK1001A/PersBilarDrivMedel',
+    {
+      method: 'POST',
+      body: JSON.stringify(query)
+    }
+  );
+  const response = await fetch(request);
+  const APIData = await response.json();
+
+  const data = APIData.data.map((data) => data.values[0]);
+
+  //mappar koderna som finns i resultatet med de läsbara varianterna som mappades manuellt
+  const labels = Object.values(codeFuelLabels);
+  console.log(labels);
+  const datasetColors = getColors(Object.values(codeRegionLabels), 0.3, 200);
+  const datasets = Object.values(codeRegionLabels).map((region, i) => {
+    return {
+      /* Nästa element i datasetLabels är för andra åldersgruppen */
+      label: region,
+      /* Fem datavärden */
+      data: data.splice(0, Object.keys(codeRegionLabels).length),
+      fill: false,
+      borderColor: datasetColors[i]
+    };
+  });
+  const canvas = document.getElementById('scbV2');
+  document.getElementById('progressImgScbV2').style.display = 'none';
+  new Chart(canvas, {
+    type: 'radar',
+    data: {
+      labels,
+      datasets
+    },
+    options: {
+      plugins: {
+        title: {
+          text: 'Typer av nyregistrerade personbilar, mars 2024',
+          display: true,
+          font: fonts.title
+        }
+      },
+      locale: 'sv'
+    }
+  });
+}
 
 getIncomeData();
-registredVehicles();
+getRegistredVehicleData();
+getRegistredVeichleDataMulti();
+
 /* Funktionen möjliggör att skicka in en siffra (1-17) som representerar ett mål */
 getGoalByArea(2);
