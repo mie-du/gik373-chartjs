@@ -264,7 +264,7 @@ async function getRegistredVehicleData() {
 
   const datasets = [
     {
-      label: 'Drivmedel hos nyregistrerade personbilar Mars 2024',
+      label: 'Drivmedel hos nyregistrerade personbilar mars 2024',
       data,
       backgroundColor: getColors(data, '0.6')
     }
@@ -280,7 +280,7 @@ async function getRegistredVehicleData() {
     options: {
       plugins: {
         title: {
-          text: 'Typer av nyregistrerade personbilar, mars 2024',
+          text: 'Typer av nyregistrerade personbilar, april 2024',
           display: true,
           font: fonts.title
         }
@@ -356,7 +356,7 @@ async function getRegistredVeichleDataMulti() {
     options: {
       plugins: {
         title: {
-          text: 'Typer av nyregistrerade personbilar, mars 2024',
+          text: 'Typer av nyregistrerade personbilar, april 2024',
           display: true,
           font: fonts.title
         }
