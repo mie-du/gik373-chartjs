@@ -1,15 +1,16 @@
 {
-  "html.format.preserveNewLines": false,
-  "emmet.triggerExpansionOnTab": true,
-  "html.format.wrapLineLength": 120,
-  "editor.wordWrap": "wordWrapColumn",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.semi": true,
-  "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.detectIndentation": true,
-  "prettier.trailingComma": "none",
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "wordWrapColumn",
+  "html.format.wrapAttributes": "preserve-aligned",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "prettier.printWidth": 120,
+  "html.format.wrapLineLength": 120,
+  "editor.wordWrapColumn": 120,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.singleQuote": true,
-  "prettier.bracketSameLine": true
+  "prettier.bracketSameLine": true,
+  "prettier.semi": true
 }
