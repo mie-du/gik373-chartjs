@@ -106,8 +106,7 @@ function printUNChart(dataUN) {
       borderWidth: 2,
       backgroundColor: 'hsla(70, 100%, 30%, 0.4)',
       borderColor: 'hsla(70, 100%, 30%, 1)',
-      hoverBorderWidth: 4,
-      tension: 0.5
+      hoverBorderWidth: 4
     }
   ];
 
