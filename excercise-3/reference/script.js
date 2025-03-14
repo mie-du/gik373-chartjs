@@ -1,5 +1,4 @@
-const urlSCB =
-  'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy';
+const urlSCB = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy';
 
 const querySCB = {
   query: [
@@ -21,21 +20,7 @@ const querySCB = {
       code: 'Tid',
       selection: {
         filter: 'item',
-        values: [
-          '2011',
-          '2012',
-          '2013',
-          '2014',
-          '2015',
-          '2016',
-          '2017',
-          '2018',
-          '2019',
-          '2020',
-          '2021',
-          '2022',
-          '2023'
-        ]
+        values: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023']
       }
     }
   ],
@@ -59,8 +44,7 @@ function printSCBChart(dataSCB) {
       fill: false,
       borderWidth: 2,
       borderColor: 'hsla(250, 100%, 30%, 1)',
-      hoverBorderWidth: 4,
-      tension: 0.5
+      hoverBorderWidth: 4
     }
   ];
 
@@ -79,8 +63,7 @@ fetch(request)
   .then((response) => response.json())
   .then(printSCBChart);
 
-const urlUN =
-  'https://unstats.un.org/SDGAPI/v1/sdg/DataAvailability/GetIndicatorsAllCountries';
+const urlUN = 'https://unstats.un.org/SDGAPI/v1/sdg/DataAvailability/GetIndicatorsAllCountries';
 
 const requestUN = new Request(urlUN, {
   method: 'POST',
