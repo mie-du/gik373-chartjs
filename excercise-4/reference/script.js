@@ -163,7 +163,6 @@ async function displayEnergyDataOnMap() {
       locations: mapData.regions,
       z: mapData.energyPerPerson,
       featureidkey: 'properties.name',
-      separators: ', ',
       colorbar: { title: { text: 'KWh/person', side: 'right' } },
       geojson:
         'https://raw.githubusercontent.com/okfse/sweden-geojson/refs/heads/master/swedish_regions.geojson '
@@ -173,7 +172,8 @@ async function displayEnergyDataOnMap() {
   const layout = {
     map: { center: { lon: 17.3, lat: 63 }, zoom: 3.3 },
     width: 370,
-    height: 600
+    height: 600,
+    separators: ', '
   };
 
   Plotly.newPlot('energyStatistics', data, layout);
@@ -183,12 +183,10 @@ async function displayEuroDataOnMap() {
   const data = [
     {
       type: 'choroplethmap',
-
       locations: ['Sweden', 'Romania', 'Finland', 'Belarus', 'Ukraine'],
       z: [10020, 1000, 2231.322, 3423.123, 5441, 1223.1],
       featureidkey: 'properties.name',
       //för stora tal är standard den amerikanska separeringen av 1000 (komma för 1000-tal, punkt för decimaler. Det kan hända att vi vill ha den svenska)
-      separators: ', ',
       geojson: '../geojson/world.geojson',
       //information om skalan
       colorbar: {
@@ -204,6 +202,7 @@ async function displayEuroDataOnMap() {
       style: 'dark'
     },
     height: 900,
+    //1000-separator
     separators: ', ',
     //utseende på skala
     colorscale: {
