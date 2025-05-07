@@ -6,12 +6,13 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "prettier.printWidth": 50,
-  "html.format.wrapLineLength": 50,
+  "prettier.printWidth": 80,
+  "html.format.wrapLineLength": 80,
   "editor.wordWrapColumn": 80,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.singleQuote": true,
   "prettier.bracketSameLine": true,
   "prettier.semi": true,
+  "prettier.trailingComma": "none",
   "prettier.arrowParens": "always"
 }
