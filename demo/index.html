@@ -1,76 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="#" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet" />
-    <title>Demo - Fler exempel</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>GIK373 - Diagram med Chart.js</h1>
-      <div>
-        <p class="details">
-          Detta är en mashup för att visa olika data rörande hållbar
-          utveckliong. Mer om mashups finner ni här:
-          <a href="https://www.klipfolio.com/blog/data-mashup-examples"
-            >Om Mashups</a
-          >
-          Källor som har använts för att hämta data är
-          <a href="https://unstats.un.org/SDGAPI/swagger/#/"
-            >United Nations Statistics Division SDG API.
-          </a>
-          och
-          <a href="https://www.scb.se/hitta-statistik">SCB - Hitta statistik</a>
-        </p>
-      </div>
-    </header>
 
-    <main>
-      <div class="flex">
-        <div class="half">
-          <img
-            class="progressImg"
-            id="progressImgScb"
-            src="icons8-spinner.gif"
-            alt="" />
-          <canvas id="scb"></canvas>
-        </div>
-        <div class="half">
-          <img
-            class="progressImg"
-            id="progressImgScbV"
-            src="icons8-spinner.gif"
-            alt="" />
-          <canvas id="scbV"></canvas>
-        </div>
-        <div class="full">
-          <img
-            class="progressImg"
-            id="progressImgUN"
-            src="icons8-spinner.gif"
-            alt="" />
-          <canvas id="un"></canvas>
-          <p class="details" id="unMoreInfo"></p>
-        </div>
-        <div class="full">
-          <img
-            class="progressImg"
-            id="progressImgScbV2"
-            src="icons8-spinner.gif"
-            alt="" />
-          <canvas id="scbV2"></canvas>
-        </div>
-      </div>
-    </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="#" />
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com" />
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin />
+  <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+  <title>Demo - Fler exempel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
-  </body>
+<body>
+  <header>
+    <h1>GIK373 - Diagram med Chart.js</h1>
+    <div>
+      <p class="details"> Detta är en exempelsida för att visa olika data
+        rörande hållbar utveckling. Källor som har använts för att hämta data är
+        <a
+           href="https://unstats.un.org/SDGAPI/swagger/#/">United Nations
+          Statistics Division SDG API. </a> och <a
+           href="https://www.scb.se/hitta-statistik">SCB - Hitta statistik</a>
+      </p>
+    </div>
+  </header>
+  <main>
+    <div class="flex">
+      <div class="half">
+        <img
+             class="progressImg"
+             id="progressImgScb"
+             src="icons8-spinner.gif"
+             alt="" />
+        <canvas id="scb"></canvas>
+      </div>
+      <div class="half">
+        <img
+             class="progressImg"
+             id="progressImgScbV"
+             src="icons8-spinner.gif"
+             alt="" />
+        <canvas id="scbV"></canvas>
+      </div>
+      <div class="full">
+        <img
+             class="progressImg"
+             id="progressImgUN"
+             src="icons8-spinner.gif"
+             alt="" />
+        <canvas id="un"></canvas>
+        <p class="details" id="unMoreInfo"></p>
+      </div>
+      <div class="full">
+        <img
+             class="progressImg"
+             id="progressImgScbV2"
+             src="icons8-spinner.gif"
+             alt="" />
+        <canvas id="scbV2"></canvas>
+      </div>
+    </div>
+  </main>
+  <script
+          src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

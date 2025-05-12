@@ -7,7 +7,7 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "prettier.printWidth": 50,
-  "html.format.wrapLineLength": 50,
+  "html.format.wrapLineLength": 80,
   "editor.wordWrapColumn": 80,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.singleQuote": true,
