@@ -13,5 +13,6 @@
   "prettier.singleQuote": true,
   "prettier.bracketSameLine": true,
   "prettier.semi": true,
+  "prettier.trailingComma": "none",
   "prettier.arrowParens": "always"
 }
