@@ -129,3 +129,45 @@ async function displayEnergyDataOnMap() {
 }
 
 displayEnergyDataOnMap();
+
+async function displayEuroDataOnMap() {
+  const data = [
+    {
+      type: 'choroplethmap',
+      locations: ['Sweden', 'Romania', 'Finland', 'Belarus', 'Ukraine'],
+      z: [10020, 1000, 2231.322, 3423.123, 5441, 1223.1],
+      featureidkey: 'properties.name',
+      geojson: '../geojson/world.geojson',
+      //information om skalan
+      colorbar: {
+        title: { text: 'Enhet på skalan', side: 'top' }
+      }
+    }
+  ];
+
+  const layout = {
+    map: {
+      center: { lon: 23.1, lat: 55.51 },
+      zoom: 2.8,
+      style: 'dark'
+    },
+    height: 900,
+    //1000-separator
+    separators: ', ',
+    //utseende på skala
+    colorscale: {
+      sequential: [
+        [0, 'hsl(118, 65.40%, 84.10%)]'],
+        [0.35, 'hsl(127, 85.70%, 43.90%)]'],
+        [0.5, 'hsl(75, 65.20%, 43.90%)]'],
+        [0.6, 'hsl(59, 65.00%, 64.10%)'],
+        [0.7, 'hsl(35, 95.20%, 49.40%)]'],
+        [1, 'hsl(18, 87.30%, 50.60%)]']
+      ]
+    }
+  };
+
+  Plotly.newPlot('europeStatistics', data, layout);
+}
+displayEuroDataOnMap();
+displayEnergyDataOnMap();
